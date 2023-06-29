@@ -16,7 +16,11 @@ int _myhistory(info_t *info)
 /**
  * unset_alias - sets alias to the strings
  * @info: parameter structure
+<<<<<<< HEAD
  * @str: the of alias string
+=======
+ * @str: the string alias
+>>>>>>> 85e22a2d9e317c219ee57a6d06af869784d8e071
  *
  * Return: Always 0 on success, 1 on error
  */
@@ -39,8 +43,12 @@ int unset_alias(info_t *info, char *str)
 /**
  * set_alias - seting alias to string
  * @info: parameter structure
+<<<<<<< HEAD
  * @str: the string of alias
  *
+=======
+ * @str: the string alias
+>>>>>>> 85e22a2d9e317c219ee57a6d06af869784d8e071
  * Return: Always 0 on success, 1 on error
  */
 int set_alias(info_t *info, char *str)

@@ -83,22 +83,22 @@ return (count);
 
 /**
  * convert_number - converter function, a clone of itoa
- * @numb: number
+ * @nm: number
  * @base: base
  * @flag: argument flags
  *
  * Return: string
  */
-char *convert_number(long int numb, int base, int flag)
+char *convert_number(long int nm, int base, int flag)
 {
 static char *array;
 static char buffer[50];
 char sign = 0;
 char *ptr;
-unsigned long n = numb;
-if (!(flag & CONVERT_UNSIGNED) && numb < 0)
+unsigned long n = nm;
+if (!(flag & CONVERT_UNSIGNED) && nm < 0)
 {
-n = -numb;
+n = -nm;
 sign = '-';
 }
 array = flag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
@@ -120,16 +120,16 @@ return (ptr);
 
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
- * @buff: address of the string to modify
+ * @buf: address of the string to modify
  * Return: Always 0;
  */
-void remove_comments(char *buff)
+void remove_comments(char *buf)
 {
 int i;
-for (i = 0; buff[i] != '\0'; i++)
-if (buff[i] == '#' && (!i || buff[i - 1] == ' '))
+for (i = 0; buf[i] != '\0'; i++)
+if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 {
-buff[i] = '\0';
+buf[i] = '\0';
 break;
 }
 }

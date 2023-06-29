@@ -4,8 +4,12 @@
  * add_node - adds a node to the start of the lists
  * @head: address of ptr to head nodes
  * @str: string field of node
+<<<<<<< HEAD
  * @num: node index used by historys
  *
+=======
+ * @nm: node index used by history
+>>>>>>> 85e22a2d9e317c219ee57a6d06af869784d8e071
  * Return: size of list
  */
 list_t *add_node(list_t **head, const char *str, int num)
@@ -34,11 +38,18 @@ list_t *add_node(list_t **head, const char *str, int num)
 }
 
 /**
+<<<<<<< HEAD
  * add_node_end - adds a node to the end of the lists
  * @head: address of ptr to head nodes
  * @str: str field of nodes
  * @num: node index used by historys
  *
+=======
+ * add_node_end - adds a node to the end of the list
+ * @head: address of pointer to head node
+ * @str: string field of node
+ * @nm: node index used by history
+>>>>>>> 85e22a2d9e317c219ee57a6d06af869784d8e071
  * Return: size of list
  */
 list_t *add_node_end(list_t **head, const char *str, int num)

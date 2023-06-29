@@ -45,9 +45,15 @@ extern char **environ;
  */
 typedef struct liststr
 {
+<<<<<<< HEAD
 	int num;
 	char *str;
 	struct liststr *next;
+=======
+int nm;
+char *str;
+struct liststr *next;
+>>>>>>> 85e22a2d9e317c219ee57a6d06af869784d8e071
 } list_t;
 
 /**
