@@ -34,8 +34,8 @@ void ffree(char **ss)
 /**
  * _realloc - reallocates a block of memory
  * @ptr: pointer to previous malloc'ated blocks
- * @od_size: byte size of previous block
- * @nw_size: byte size of new block
+ * @old_size: byte size of previous block
+ * @new_size: byte size of new block
  *
  * Return: pointer to da ol'block nameen.
  */

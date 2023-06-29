@@ -1,10 +1,9 @@
 #include "shell.h"
 
 /**
- * is_cmd - determines if a file is an executable 
+ * is_cmd- determines if a file is an executable
  * @info: the info structure
- * @path: path to the files 
- *
+ * @path: path to the files
  * Return: 1 if true, 0 otherwise
  */
 int is_cmd(info_t *info, char *path)
