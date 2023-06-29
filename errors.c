@@ -2,17 +2,17 @@
 
 /**
  *_eputs - prints an input string
- * @strg: the string to be printed
+ * @str: the string to be printed
  * Return: Nothing
  */
-void _eputs(char *strg)
+void _eputs(char *str)
 {
 int n = 0;
-if (!strg)
+if (!str)
 return;
-while (strg[n] != '\0')
+while (str[n] != '\0')
 {
-_eputchar(strg[n]);
+_eputchar(str[n]);
 n++;
 }
 }
@@ -59,18 +59,18 @@ return (1);
 
 /**
  *_putsfd - prints an input string
- * @strg: the string to be printed
+ * @str: the string to be printed
  * @filedescriptor: the filedescriptor to write to
  * Return: the number of chars put
  */
-int _putsfd(char *strg, int filedescriptor)
+int _putsfd(char *str, int filedescriptor)
 {
 int i = 0;
-if (!strg)
+if (!str)
 return (0);
-while (*strg)
+while (*str)
 {
-i += _putfd(*strg++, filedescriptor);
+i += _putfd(*str++, filedescriptor);
 }
 return (i);
 }

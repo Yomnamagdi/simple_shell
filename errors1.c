@@ -120,16 +120,16 @@ return (ptr);
 
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
- * @buff: address of the string to modify
+ * @buf: address of the string to modify
  * Return: Always 0;
  */
-void remove_comments(char *buff)
+void remove_comments(char *buf)
 {
 int i;
-for (i = 0; buff[i] != '\0'; i++)
-if (buff[i] == '#' && (!i || buff[i - 1] == ' '))
+for (i = 0; buf[i] != '\0'; i++)
+if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 {
-buff[i] = '\0';
+buf[i] = '\0';
 break;
 }
 }
