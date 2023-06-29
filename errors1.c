@@ -83,22 +83,22 @@ return (count);
 
 /**
  * convert_number - converter function, a clone of itoa
- * @numb: number
+ * @nm: number
  * @base: base
  * @flag: argument flags
  *
  * Return: string
  */
-char *convert_number(long int numb, int base, int flag)
+char *convert_number(long int nm, int base, int flag)
 {
 static char *array;
 static char buffer[50];
 char sign = 0;
 char *ptr;
-unsigned long n = numb;
-if (!(flag & CONVERT_UNSIGNED) && numb < 0)
+unsigned long n = nm;
+if (!(flag & CONVERT_UNSIGNED) && nm < 0)
 {
-n = -numb;
+n = -nm;
 sign = '-';
 }
 array = flag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
