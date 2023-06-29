@@ -16,16 +16,16 @@ int _myhistory(info_t *info)
 /**
  * unset_alias - sets alias to strings
  * @info: parameter structure
- * @st: the string alias
+ * @str: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int unset_alias(info_t *info, char *st)
+int unset_alias(info_t *info, char *str)
 {
 	char *p, c;
 	int ret;
 
-	p = _strchr(st, '=');
+	p = _strchr(str, '=');
 	if (!p)
 		return (1);
 	c = *p;
@@ -39,11 +39,10 @@ int unset_alias(info_t *info, char *st)
 /**
  * set_alias - sets alias to strings
  * @info: parameter structure
- * @st: the string alias
- *
+ * @str: the string alias
  * Return: Always 0 on success, 1 on error
  */
-int set_alias(info_t *info, char *st)
+int set_alias(info_t *info, char *str)
 {
 	char *p;
 
@@ -51,10 +50,10 @@ int set_alias(info_t *info, char *st)
 	if (!p)
 		return (1);
 	if (!*++p)
-		return (unset_alias(info, st));
+		return (unset_alias(info, str));
 
-	unset_alias(info, st);
-	return (add_node_end(&(info->alias), st, 0) == NULL);
+	unset_alias(info, str);
+	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
 
 /**

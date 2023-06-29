@@ -5,7 +5,6 @@
  * @head: address of pointer to head node
  * @str: string field of node
  * @nm: node index used by history
- *
  * Return: size of list
  */
 list_t *add_node(list_t **head, const char *str, int nm)
@@ -38,7 +37,6 @@ list_t *add_node(list_t **head, const char *str, int nm)
  * @head: address of pointer to head node
  * @str: string field of node
  * @nm: node index used by history
- *
  * Return: size of list
  */
 list_t *add_node_end(list_t **head, const char *str, int nm)
