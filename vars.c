@@ -1,33 +1,33 @@
 #include "shell.h"
 
 /**
- * is_chain - test if current chararcter in buffer is a chain delimeter
+ * is_chain - test if current char in buffer is a chain delim
  * @info: the parameter structure
- * @buff: the charcter buffer
+ * @buf: the charcter buffer
  * @p: address of current position in buffer
  *
  * Return: 1 if chain delimeter, 0 otherwise
  */
-int is_chain(info_t *info, char *buff, size_t *p)
+int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
 
-	if (buff[j] == '|' && buff[j + 1] == '|')
+	if (buf[j] == '|' && buf[j + 1] == '|')
 	{
-		buff[j] = 0;
+		buf[j] = 0;
 		j++;
 		info->cmd_buf_type = CMD_OR;
 	}
-	else if (buff[j] == '&' && buff[j + 1] == '&')
+	else if (buf[j] == '&' && buf[j + 1] == '&')
 	{
-		buff[j] = 0;
+		buf[j] = 0;
 		j++;
-		info->cmd_buff_type = CMD_AND;
+		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buff[j] == ';') /* found end of this command */
+	else if (buf[j] == ';') /* found end of this command */
 	{
-		buff[j] = 0; /* replace semicolon with null */
-		info->cmd_buff_type = CMD_CHAIN;
+		buf[j] = 0; /* replace semicolon with null */
+		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
 		return (0);
@@ -36,33 +36,33 @@ int is_chain(info_t *info, char *buff, size_t *p)
 }
 
 /**
- * check_chain - checks we should continue chaining depending on last status
- * @info: the parameter structuer
- * @buff: the character buffer
+ * check_chain - checks we should continue chained based on last status
+ * @info: the parameter structure
+ * @buf: the charscter buffer
  * @p: address of current position in buffer
  * @i: starting position in buffer
- * @ln: length of buffer
+ * @len: length of buffer
  *
  * Return: Void
  */
-void check_chain(info_t *info, char *buff, size_t *p, size_t i, size_t ln)
+void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
 
-	if (info->cmd_buff_type == CMD_AND)
+	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
-			buff[i] = 0;
-			j = ln;
+			buf[i] = 0;
+			j = len;
 		}
 	}
-	if (info->cmd_buff_type == CMD_OR)
+	if (info->cmd_buf_type == CMD_OR)
 	{
 		if (!info->status)
 		{
-			buff[i] = 0;
-			j = ln;
+			buf[i] = 0;
+			j = len;
 		}
 	}
 
@@ -70,7 +70,7 @@ void check_chain(info_t *info, char *buff, size_t *p, size_t i, size_t ln)
 }
 
 /**
- * replace_alias - replaces  aliases in the tokenized string
+ * replace_alias - replaces an aliases in the tokenized strings
  * @info: the parameter structure
  *
  * Return: 1 if replaced, 0 otherwise
@@ -99,7 +99,7 @@ int replace_alias(info_t *info)
 }
 
 /**
- * replace_vars - replaces vars in tokenized string
+ * replace_vars - replaces vars in the tokenized strings
  * @info: the parameter structure
  *
  * Return: 1 if replaced, 0 otherwise
@@ -140,15 +140,15 @@ int replace_vars(info_t *info)
 }
 
 /**
- * replace_string - replaces string
- * @od: address of the old string
- * @nw: new string
+ * replace_string - replaces strings
+ * @old: address of old strings
+ * @new: new strings
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_string(char **od, char *nw)
+int replace_string(char **old, char *new)
 {
-	free(*od);
-	*old = nw;
+	free(*old);
+	*old = new;
 	return (1);
 }

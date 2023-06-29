@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * clear_info - initializes info_t struct
+ * clear_info - initialized info_t struct
  * @info: structure address
  */
 void clear_info(info_t *info)
@@ -13,15 +13,15 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
- * @info: structure address
- * @avg: argument vector
+ * set_info - initializds info_t struct
+ * @info: strucuret address
+ * @av: argument vectors
  */
-void set_info(info_t *info, char **avg)
+void set_info(info_t *info, char **av)
 {
 	int i = 0;
 
-	info->fname = avg[0];
+	info->fname = av[0];
 	if (info->arg)
 	{
 		info->argv = strtow(info->arg, " \t");
@@ -45,16 +45,16 @@ void set_info(info_t *info, char **avg)
 }
 
 /**
- * free_info - frees info_t struct fields
+ * free_info - frees info_t structure fields
  * @info: structure address
- * @al: true if freeing all fields
+ * @all: true if freeing all of fields
  */
-void free_info(info_t *info, int al)
+void free_info(info_t *info, int all)
 {
 	ffree(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
-	if (al)
+	if (all)
 	{
 		if (!info->cmd_buf)
 			free(info->arg);
